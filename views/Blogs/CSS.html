@@ -1,0 +1,163 @@
+<div>
+<h2>WHAT IS CSS?</h2>
+<p>CSS stands for&nbsp;<strong>Cascading Style Sheet</strong>. Where&nbsp;<em>HTML</em>&nbsp;is what defines the&nbsp;<em>structure</em>&nbsp;and&nbsp;<em>content</em>&nbsp;of a web page, a&nbsp;<em>Cascading Style Sheet</em>&nbsp;is a web document that allows you to change the&nbsp;<em>appearance</em>&nbsp;of the HTML.</p>
+<p>CSS allows you to change the size, style, font, and color of text; margins and padding; background colors and border styles. It can also be used to position elements on a page (but we&rsquo;ll leave that for another day).</p>
+<h3>ONE BIG ADVANTAGE OF CSS IS CONSISTENCY</h3>
+<p><strong>The best thing about CSS is that is allows you to make global style changes</strong>&nbsp;that affect every instance of a certain element throughout your blog or website so that you don&rsquo;t have to make these changes at the individual page level. This saves you a ton of time when it comes to redesigning your blog.</p>
+<p>Here&rsquo;s an example of what I mean: as we learned last week, the page title on a blog page is defined by an HTML element called an H1 (heading 1). By default, the browser displays an H1 as extra large, bold, black text, much like we saw in the PAWS example.</p>
+<p>If we want to change the color, font and size of all the H1&rsquo;s on our blog to keep consistency throughout, all you need to do is define what all H1&rsquo;s will look like in your CSS.</p>
+<p>Sometimes different browsers may display slightly different default styles. Using a style sheet to define what a specific element should look like can keep the look of your blog consistent from one browser to another as well as one device to another.</p>
+<h2>HOW DOES CSS WORK?</h2>
+<h3>THE CASCADE</h3>
+<p><strong>A very important piece of CSS is the &ldquo;Cascading&rdquo; part.</strong>&nbsp;The browser reads style definitions from top to bottom in a style sheet. This means that a style you define lower in the style sheet will override any&nbsp;<em>previous</em>&nbsp;styles defined earlier in the style sheet.</p>
+<p>We&rsquo;ll get into that in a moment.</p>
+<p>You can also have a style sheet override another style sheet. This is how we are able to override predefined styles from our blog themes or plugin widgets, as our custom style sheet is usually the last one read by the browser.</p>
+<p>HOW CSS IS APPLIED</p>
+<p>CSS is applied to HTML elements in a web page by declaring specific styles for each element. A style declaration looks like this:</p>
+<pre>selector {
+ property: value;
+}</pre>
+<p>Let&rsquo;s look at each of these pieces separately:</p>
+<h4>Selector</h4>
+<p>The selector is the piece of content that we want to target and style. It is either an&nbsp;<strong>HTML element</strong>&nbsp;or a&nbsp;<strong>Class Name</strong>.</p>
+<p>When defining an HTML element, we use the tag name&nbsp;<em>without</em>&nbsp;the opening and closing bracket. For example, the&nbsp;<code>&lt;p&gt;</code>&nbsp;(or paragraph tag) would simply be:</p>
+<pre>p</pre>
+<p>A Class Name always begins with a dot. For example,</p>
+<pre>.big-font</pre>
+<p>We&rsquo;ll get more into&nbsp;<em>classes</em>&nbsp;in a bit.</p>
+<h4>Property</h4>
+<p><em>Properties</em>&nbsp;and their respective&nbsp;<em>values</em>&nbsp;always live within curly braces:</p>
+<pre>p {
+}</pre>
+<p>Properties are predefined terms within CSS that all web browsers understand. They are things like:</p>
+<p><code>font-family, font-size, color</code>, etc.</p>
+<pre>p {
+ font-family:
+ font-size:
+ color:
+}</pre>
+<p><strong>A property is always followed by a colon (:)</strong></p>
+<h4>Value</h4>
+<p>The value is the particular style or variable you choose to assign to a property. For example:</p>
+<pre>p {
+ font-family: Arial;
+ font-size: 16px;
+ color: gray;
+}</pre>
+<p><strong>A value is always followed by a semi-colon (;)</strong></p>
+<p>So the example above tells the browser that we want all of our page titles (or any element surrounded by an&nbsp;<code>&lt;p&gt;</code>&nbsp;tag) to be displayed in Arial font at 16 pixels in size and in the color gray.</p>
+<p>Pretty easy, right? Let&rsquo;s do another one.</p>
+<pre>a {
+ color: pink;
+ font-weight: bold;
+ text-decoration: none;
+}</pre>
+<p>This example tells the browser to make all links (anchor tags that look like this:&nbsp;<code>&lt;a&gt;</code>) within our blog the color pink, bold, and not underlined. (Browsers by default display links in blue with an underline).</p>
+<p><code>text-decoration:</code>&nbsp;is a predefined property that all browsers understand. I wish it was something easy like&nbsp;<code>underline:</code>&nbsp;but it&rsquo;s not. After using CSS for a while, you begin to memorize the more common properties. But to make it easy for you, I&rsquo;ve created a cheat sheet of all the most commonly used properties and their available values!&nbsp;<a href="http://designyourownblog.com/landing/css-cheat-sheet/" target="_blank">Download your free CSS cheat sheet here!</a></p>
+<p>Make sense so far?</p>
+<div>Ok, I should make a disclaimer here.
+<p>In these last two examples, I used names for the colors instead of hex codes. While these are perfectly valid and will be read just fine by any browser, it really is best to use hex color codes or RGB values (explained in the cheat sheet) in your CSS. This will allow you to use very specific colors from your branding. Hex color codes look something like this:</p>
+<pre>#1bded1 </pre>
+<p>You can find hex colors in any&nbsp;<a href="http://designyourownblog.com/color-palette-tools-inspiration/">color picker tool</a>&nbsp;or image editing tool.</p>
+</div>
+<h3>DEFINING MULTIPLE ELEMENTS</h3>
+<p>Ok, let&rsquo;s do a little shorthand. Let&rsquo;s say you want to use the same font and color to define your page titles and subtitles but display them in different font sizes (a common style request). We could define each HTML element separately like this&hellip;</p>
+<pre>h1 {
+ font-family: Verdana;
+ font-size: 24px;
+ color: green;
+}
+h2 {
+ font-family: Verdana;
+ font-size: 20px;
+ color: green;
+}
+h3 {
+ font-family: Verdana;
+ font-size: 18px;
+ color: green;
+}</pre>
+<p>&hellip;but since all three tags share the same font-family and color values, that creates a lot of repetition. Instead we can define multiple HTML elements together be separating them with commas, like this:</p>
+<pre>h1, h2, h3 {
+ font-family: Verdana;
+ font-size: 24px;
+ color: green;
+}</pre>
+<p>Now in order to change just the font-size of the h2&rsquo;s and h3&rsquo;s, we can&nbsp;<em>override</em>&nbsp;the font-size by defining them just below:</p>
+<pre>h2 {
+ font-size: 20px;
+}
+h3 {
+ font-size: 18px;
+}</pre>
+<p><strong>That&rsquo;s how the&nbsp;<em>cascade</em>&nbsp;works!</strong>&nbsp;There&rsquo;s no need to redefine the&nbsp;<code>font-family</code>&nbsp;and the&nbsp;<code>color</code>&nbsp;because they&rsquo;ve already been defined up above. This also makes it easier in the future if you decide to change your font to something else. You only need to change it once instead of three times!</p>
+<p>Either way is correct because the browser will understand both methods, but</p>
+<p>a) it&rsquo;s quicker for you to write and edit version 2 and<br />b) it helps your CSS to load faster because you&rsquo;re keeping the file size smaller by cutting out the repetition.</p>
+<h3>OTHER ELEMENTS</h3>
+<p>We can style more than just text in our CSS. We can define the look of a widget or image for example. Let&rsquo;s say you want a black border around all your images. Remember our&nbsp;<code>&lt;img&gt;</code>&nbsp;tag? Here&rsquo;s how we do that:</p>
+<pre>img {
+ border-width: 1px;
+ border-style: solid;
+ border-color: #000000;
+}</pre>
+<p>This will add a one-pixel-width, solid, black border around all your images.</p>
+<p>CSS CLASSES</p>
+<p>Now let&rsquo;s say you didn&rsquo;t want certain images on your web page to have a border on them, like your icons for example. We can add a class to those elements in the HTML to specifically target them. We add a class like this:</p>
+<p><code>&lt;img src="image/twitter-icon.png"&nbsp;class="icons"&nbsp;/&gt;</code></p>
+<p><em>Note that there are NO spaces between the word class, the equal sign, or the double quotes.</em></p>
+<p>You can name a class whatever you want, you just want to name it something that makes sense. Also note that there are never any spaces in class names.</p>
+<p>In CSS, all class names begin with a dot. Now we go back into the CSS and add the following after the previous image style (defined above) so that it&rsquo;s overridden:</p>
+<pre>.icons {
+ border: none;
+}</pre>
+<p>This will tell the browser to only apply this style declaration to image tags with the class &ldquo;icons&rdquo; added to it.</p>
+<p>You can actually add this class to any HTML element that you don&rsquo;t want a border around.</p>
+<div>
+<div>NESTED CSS STYLES</div>
+</div>
+<p>HTML tags can be nested within other HTML tags. For example, a bulleted (or unordered) list looks like this:</p>
+<pre>&lt;ul&gt;
+ &lt;li&gt;list item number one&lt;/li&gt;
+ &lt;li&gt;list item number two&lt;/li&gt;
+ &lt;li&gt;list item number three&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<p>Now let&rsquo;s say we want all our list items (li&rsquo;s) in a list to be italicized. We would define it like this in the CSS:</p>
+<pre>li {
+ font-style: italics;
+}</pre>
+<p>But what if we wanted to target a particular unordered list, not all of them? We could do that by adding a class to our list items:</p>
+<pre>&lt;ul&gt;
+ &lt;li class="slanted"&gt;list item number one&lt;/li&gt;
+ &lt;li class="slanted"&gt;list item number two&lt;/li&gt;
+ &lt;li class="slanted"&gt;list item number three&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<p>This could get VERY cumbersome if we had 100 list items! So instead of adding a class to every&nbsp;<code>&lt;li&gt;</code>&nbsp;in our list, we can very easily do this by adding our class to the&nbsp;<code>&lt;ul&gt;</code>&nbsp;tag instead:</p>
+<pre>&lt;ul class="slanted"&gt;
+ &lt;li&gt;list item number one&lt;/li&gt;
+ &lt;li&gt;list item number two&lt;/li&gt;
+ &lt;li&gt;list item number three&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<p>But now we need a slight change to our CSS. Since the class is applied to the parent element of the&nbsp;<code>&lt;li&gt;</code>&nbsp;tag, this is how we handle that:</p>
+<pre>.slanted li {
+ font-style: italic;
+}</pre>
+<p>Do you see what I did there? I added the class name, then a space, THEN the&nbsp;<code>li</code>&nbsp;tag. This tells the browser to italicize ALL&nbsp;<code>li</code>&nbsp;tags within the class named &ldquo;slanted.&rdquo;</p>
+<p>TROUBLESHOOTING AND COMMON SYNTAX ERRORS</p>
+<p>Sometimes after editing your style sheet, you might get an error or find that a particular style definition is not working when you refresh your browser window. Oftentimes, these are caused by syntax errors.</p>
+<p>Browsers can be very particular when it comes to proper syntax and one little mistake can throw everything off. If this happens&hellip;</p>
+<ul>
+<ul>
+<li>Check your style sheet for missing semi-colons, spelling errors or missing opening and closing curly braces.</li>
+</ul>
+</ul>
+<ul>
+<li>Did you forget the dot before a class name or add a dot before an HTML element?</li>
+<li>Are there commas between multiple selectors?</li>
+</ul>
+<p>Your error may be in your HTML:</p>
+<ul>
+<li>Did you follow the word &lsquo;class&rsquo; with an equal sign and no spaces?</li>
+<li>Did you surround the class name with double quotes?</li>
+<li>Is the class name spelled exactly the same in the HTML as it is in the CSS?</li>
+</ul>
+</div>
