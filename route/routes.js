@@ -44,6 +44,10 @@ router.get('/login', (req, res) => {
   res.render('login');
 })
 
+router.get('/refreshExpress', (req, res) => {
+  res.render('refreshExpress');
+})
+
 // testing
 router.get('/find/:name', async (req, res) => {
   const name = req.params.name

@@ -1,4 +1,12 @@
 <div>
-    <h1>Express Handlebars Home Page</h1>
-    <h3>Express Uniform Resource Locator = {{EX_URL}}</h3>
+    <h1>express server home page</h1><hr>
+    <h3>clock : <span id="demo"></span></h3>
+    <script>
+        setInterval(myTimer, 1000);
+
+        function myTimer() {
+            const d = new Date();
+            document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+        }
+    </script>
 </div>
