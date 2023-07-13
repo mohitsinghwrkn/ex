@@ -26,6 +26,11 @@ app.get("/", (req, res) =>
   res.send("Hello there!! Cheers !! The server is up and running")
 );
 
+// refresh call
+app.get("/refresh", (req, res) =>
+  res.send(`preventing backend from inactivity + ${new Date()}`)
+);
+
 // using our routes
 app.use('/ex', router);
 app.use("/api/todo", todo);

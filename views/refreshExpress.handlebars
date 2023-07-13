@@ -2,17 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/JavaScript">
-      AutoRefresh(s = 1000, m = 60*s)
-            function AutoRefresh() {
-               setTimeout("location.reload(true)", 10*m);
-            }
-      </script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <script type="text/JavaScript">
+      overallSeconds = 10*60
+      setInterval(()=>{
+         overallSeconds -= 1;
+         minutes = overallSeconds/60
+         seconds = overallSeconds - Math.floor(minutes)*60
+         binary = seconds.toString(2)
+         document.getElementById('minutes-counter').innerText = minutes;
+         document.getElementById('binary-counter').innerText = binary; 
+         }, 1000);
+
+      setTimeout("location.reload(true)", 60000)
+   </script>
+
 </head>
-<body>
-   refreshExpress
+
+<body>refreshExpress : preventing inactivity <hr>
+   <div style="font-size: 32px;">reloading in : <span id="minutes-counter">0</span> minutes and <span style="color: green;" id="binary-counter">0</span> binary seconds</div>
 </body>
+
 </html>
