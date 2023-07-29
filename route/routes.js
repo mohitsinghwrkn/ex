@@ -55,7 +55,7 @@ router.post("/like/", async (req, res) => {
   likeModel.findOne().then((doc) => {
     if (!doc) {
       let like = new likeModel(req.body);
-      like.save().then(()=>console.log("like created successfully"))
+      like.save().then(() => console.log("like created successfully"));
     } else {
       doc.like = req.body.like;
       doc.save().then((doc) => res.send("liked"));
@@ -67,20 +67,6 @@ router.route("/showLike").get(function (req, res) {
   likeModel.findOne().then((data) => {
     res.send(data);
   });
-});
-
-// testing
-router.get("/find/:name", async (req, res) => {
-  const name = req.params.name;
-  const existingUser = await signup_model.findOne({ name: name });
-  res.send(existingUser);
-});
-
-// testing again
-router.get("/findAgain/:email", async (req, res) => {
-  const email = req.params.email;
-  const existingUser = await signup_model.findOne({ email: email });
-  res.send(existingUser);
 });
 
 // To Add New Employee
@@ -298,10 +284,11 @@ router.get("/adminBlogs", (req, res) => {
 });
 
 // testing
-router.get("/adminBlogs/:name", async (req, res) => {
-  const bid = req.params.bid;
-  const data = await admin_create_model.findOne({ bid: bid });
-  res.send(data);
+router.get("/adminBlogs/:bid", async (req, res) => {
+  const params = req.params.bid;
+  admin_create_model.find({bid: params}).then((data) => {
+    res.send(data);
+  });
 });
 
 console.log(__dirname);
