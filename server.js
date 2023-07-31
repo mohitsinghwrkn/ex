@@ -45,3 +45,5 @@ app.set('views', './views');
 app.listen(port, () =>
   console.log(`Server is running on http://localhost:${port}`)
 );
+
+console.log(__filename);

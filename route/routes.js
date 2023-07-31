@@ -291,5 +291,4 @@ router.get("/adminBlogs/:bid", async (req, res) => {
   });
 });
 
-console.log(__dirname);
 module.exports = router;
