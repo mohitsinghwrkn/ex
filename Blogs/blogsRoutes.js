@@ -7,7 +7,7 @@ router.get("/css", (req, res) => {
 });
 
 router.get("/html", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/html.html"));
+  res.sendFile(path.join(__dirname, "../views/Blogs/CSS.html"));
 });
 
 module.exports = router;
